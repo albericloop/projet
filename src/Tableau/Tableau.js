@@ -1,38 +1,61 @@
 import React, { Component } from 'react';
-import Attraction from ./Attraction.js
-import Batiment from ./Batiment.js
-import Personnel from ./Personnel.js
+import { Button } from 'reactstrap';
+import Attraction from '../Attraction/Attraction.js';
 
 
 class Tableau extends Component {
   constructor(props){
     super(props);
+    this.type = null;
     this.state = {
-      attractions: displayed,
-      batiments: null,
-      personnel: null,
-      maintenance: null,
-      statistiques: null,
+      listAttractions: [],
+      listBatiments: [],
+      listPersonnel: [],
+      maintenances: [],
+      statistiques: [],
     }
 
+ }
+
+addAttraction(){
+  this.setState({
+    listAttractions: this.state.listAttractions.concat(new Attraction)
+  })
 }
+
+
 
 displayAttractions(){
-  this.setState({attractions: displayed});
-  if(this.state.attraction){
-    return(
-      <button onClick={}>Ajouter une attraction</button>
-    )
-  }
+  let listItem = this.state.listAttractions.map((attraction, index) =>
+    <li key={index}>
+      <Attraction />
+
+      <Button close
+              onClick={() => this.setState(
+                {listAttractions: this.state.listAttractions.slice(0, -1)}
+              )}>
+      </Button>
+
+    </li>
+  );
+  return (
+     <Button color="secondary" onClick={this.addAttraction}>+ Ajouter une attraction</Button>
+  )
 }
 
-displayBatiments(){
-  this.setState({batiments: displayed});
-  if(this.state.batiments){
-    return(
-      <button onClick={}>Ajouter un nouveau bâtiment</button>
-    )
-  }
+/*displayBatiments(){
+  let listItem = this.state.listBatiments.map((batiment, index) =>
+    <li key={index}>
+      <Batiment />
+
+      <Button close
+              onClick={() => this.setState(
+                {listAttractions: this.state.listAttractions.slice(0, -1)}
+              }>
+      </Button>
+
+    </li>
+  );
 }
 
 displayPersonnel(){
@@ -60,18 +83,11 @@ displayStatistiques(){
 
     )
   }
+} */
+
+  render(){
+    return this.displayAttractions
+  }
+
 }
-
-
-render(){
-  return(
-    {this.props.name}
-    <button onClick={this.displayAttractions}>Attractions</button>
-    <button onClick={this.displayBatiments}>Bâtiments</button>
-    <button onClick={this.displayPersonnel}>Personnel</button>
-    <button onClick={this.displayMaintenance}>Maintenance</button>
-    <button onClick={this.displayStatistiques}>Statistiques</button>
-  )
-}
-
 export default Tableau;
