@@ -6,3 +6,5 @@ class Attraction {
     this.Prix = Prix;
   }
 }
+
+export default Attraction;

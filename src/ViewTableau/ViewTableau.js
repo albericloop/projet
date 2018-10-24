@@ -46,17 +46,14 @@ displayAttractions(){
   let listItem = this.state.listBatiments.map((batiment, index) =>
     <li key={index}>
       <Batiment />
-
       <Button close
               onClick={() => this.setState(
                 {listAttractions: this.state.listAttractions.slice(0, -1)}
               }>
       </Button>
-
     </li>
   );
 }
-
 displayPersonnel(){
   this.setState({personnel: displayed});
   if(this.state.personnel){
@@ -65,7 +62,6 @@ displayPersonnel(){
     )
   }
 }
-
 displayMaintenance(){
   this.setState({maintenance: displayed});
   if(this.state.maintenance){
@@ -74,12 +70,10 @@ displayMaintenance(){
     )
   }
 }
-
 displayStatistiques(){
   this.setState({statistiques: displayed});
   if(this.state.statistiques){
     return(
-
     )
   }
 } */
