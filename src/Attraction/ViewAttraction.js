@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class Attraction extends Component {
+class ViewAttraction extends Component {
   constructor(ID, Nom, Date, Prix) {
     this.ID = ID;
     this.Nom = Nom;

@@ -1,3 +1,5 @@
+import myData from './dataAttraction.json';
+
 class Attraction {
   constructor(ID, Nom, Date, Prix) {
     this.ID = ID;
