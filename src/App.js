@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import myDataAttraction from './dataAttraction.json';
 import myDataBatiment from './dataBatiment.json';
-
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Button } from 'reactstrap';
-
 import './App.css';
 import Tableau from './Tableau/Tableau.js';
 import Attraction from './Attraction/Attraction.js';
 import Batiment from './Batiment/Batiment.js';
 import Personnel from './Personnel/Personnel.js';
 import Maintenance from './Maintenance/Maintenance.js';
+import Menu from './Menu/Menu.js';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -30,29 +30,20 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <div>
+      <div className="App-header">
+      <h3>Parc VauxMoret 3</h3>
+      </div>
+      <Menu />
        <div className="App">
-         <Button color="danger" size="lg">
-            <Link to="/attractions">{this.state.dataAttraction.length} attractions</Link>
-         </Button>
-         <Button color="primary" size="lg">
-           <Link to="/batiments">Batiments</Link>
-         </Button>
-         <Button color="success" size="lg">
-           <Link to="/personnel">Personnel</Link>
-         </Button>
-         <Button color="success" size="lg">
-           <Link to="/maintenances">Maintenances</Link>
-         </Button>
 
-         <Route path="/attractions" component={Attraction} />
-         <Route path="/batiment" component={Batiment} />
-         <Route path="/personnel" component={Personnel} />
-         <Route path="/maintenances" component={Maintenance} />
-
+       <Button color="danger" size="lg">{this.state.dataAttraction.length} Attractions
+       </Button>
+       <Tableau item="attraction" />
 
         </div>
-      </Router>
+      </div>
+
     )
 
 
