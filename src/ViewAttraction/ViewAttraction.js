@@ -17,7 +17,7 @@ class ViewAttraction extends Component {
 
 
   render(){
-    return this.displayAttraction
+    return (<div>Test</div>)
   }
 
 }
