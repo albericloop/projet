@@ -3,7 +3,7 @@ import { Button } from 'reactstrap';
 import Attraction from '../Attraction/Attraction.js';
 
 
-class Tableau extends Component {
+class ViewTableau extends Component {
   constructor(props){
     super(props);
     this.type = null;
@@ -14,7 +14,6 @@ class Tableau extends Component {
       maintenances: [],
       statistiques: [],
     }
-
  }
 
 addAttraction(){
