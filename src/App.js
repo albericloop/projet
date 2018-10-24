@@ -8,6 +8,7 @@ import { Button } from 'reactstrap';
 import './App.css';
 import Tableau from './Tableau/Tableau.js';
 import Attraction from './Attraction/Attraction.js';
+import Batiment from './Batiment/Batiment.js';
 import Personnel from './Personnel/Personnel.js';
 import Maintenance from './Maintenance/Maintenance.js';
 class App extends Component {
@@ -47,7 +48,7 @@ class App extends Component {
          <Route path="/attractions" component={Attraction} />
          <Route path="/batiment" component={Batiment} />
          <Route path="/personnel" component={Personnel} />
-         <Route path="/maintenances" component={Mainenance} />
+         <Route path="/maintenances" component={Maintenance} />
 
 
         </div>
