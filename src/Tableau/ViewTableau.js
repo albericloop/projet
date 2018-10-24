@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
-import Attraction from '../Attraction/Attraction.js';
+import Attraction from '../ViewAttraction/ViewAttraction.js';
 
 
 class ViewTableau extends Component {
@@ -89,4 +89,4 @@ displayStatistiques(){
   }
 
 }
-export default Tableau;
+export default ViewTableau;

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 
 
-class Attraction extends Component {
+class ViewAttraction extends Component {
   constructor(ID, Nom, Date, Prix) {
-    this.ID = ID;
-    this.Nom = Nom;
-    this.Date = Date;
-    this.Prix = Prix;
+
   }
 
   displayAttraction(){
@@ -25,4 +22,4 @@ class Attraction extends Component {
 
 }
 
-export default Attraction;
+export default ViewAttraction;
