@@ -5,14 +5,6 @@ class Attraction extends Component {
     super(props);
     this.state = { ID: this.props.ID, Nom: this.props.Nom, Date: this.props.Date, Prix: this.props.Prix}
   }
-/*  displayAttraction(){
-   return(
-     <div className="attraction">
-       <h3>{this.state.Nom}</h3>
-       <h3>{this.state.Prix}</h3>
-     </div>
-   )
- }*/
   render(){
     return(
       <div className="Attraction">
@@ -22,9 +14,6 @@ class Attraction extends Component {
         <h3>{this.state.Prix}</h3>
       </div>
     )
-  }
-
-  deleteAttraction(){
   }
 }
 

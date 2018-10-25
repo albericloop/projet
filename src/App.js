@@ -17,11 +17,10 @@ class App extends Component {
     this.state = {
       dataAttraction: myDataAttraction,
       dataBatiment: myDataBatiment,
-      attractionList: [],
       batimentList: []
     }
   }
-
+/*
   componentDidMount() {
     var attraction = this.state.dataAttraction;
     var list = [];
@@ -38,7 +37,7 @@ class App extends Component {
   displayAttraction(){
     let listItem = this.state.attractionList.map((attraction, index) =>
       <li key={index}>
-        <Attraction ID={attraction.ID} Nom={attraction.Nom} Date={attraction.Date} Prix={index}/>
+        <Attraction ID={attraction.ID} Nom={attraction.Nom} Date={attraction.Date} Prix={attraction.Prix}/>
         <button onClick={() => {this.remove(index)}}>Remove</button>
         <button onClick={() => {this.remove(index)}}>Modify</button>
       </li>
@@ -46,32 +45,26 @@ class App extends Component {
     return (<ul>{listItem}</ul>);
   }
 
+  remove(){
+    this.setState({
+      attractionList: this.state.attractionList.slice(0, -1)
+    })
+  }
+*/
+
+
   render() {
     return (
-      <Router>
-       <div className="App">
-         <Button color="danger" size="lg">
-            <Link to="/attractions">Attractions</Link>
-         </Button>
-         <Button color="primary" size="lg">
-           <Link to="/batiments">Batiments</Link>
-         </Button>
-         <Button color="success" size="lg">
-           <Link to="/personnel">Personnel</Link>
-         </Button>
-         <Button color="success" size="lg">
-           <Link to="/maintenances">Maintenances</Link>
-         </Button>
-
-         <Route path="/attractions" component={Attraction} />
-         <Route path="/batiment" component={Batiment} />
-         <Route path="/personnel" component={Personnel} />
-         <Route path="/maintenances" component={Maintenance} />
-
-         {this.displayAttraction()}
+      <div>
+        <div className="App-header">
+        <h3>Parc VauxMoret 3</h3>
+        </div>
+        <div className="App">
+          <Button color="danger" size="lg">Attractions</Button>
+          <Tableau item="attraction" />
 
         </div>
-      </Router>
+      </div>
     )
   }
 }
