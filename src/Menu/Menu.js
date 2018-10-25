@@ -1,36 +1,91 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './Menu.css';
+import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import Attraction from '../Attraction/Attraction.js';
 import Batiment from '../Batiment/Batiment.js';
 import Personnel from '../Personnel/Personnel.js';
 import Maintenance from '../Maintenance/Maintenance.js';
+import Tableau from '../Tableau/Tableau.js';
+import App from '../App.js';
+
 import { Button } from 'reactstrap';
 
 class Menu extends Component {
   render(){
     return(
+
       <Router>
-        <div className="Menu">
-        <Button class="btn btn-primary" color="danger" size="lg">
-           <Link to="/attractions">Attractions</Link>
-        </Button><br/>
-        <Button outline color="primary" size="lg">
-          <Link to="/batiments">Batiments</Link>
-        </Button><br/>
-        <Button color="success" size="lg">
-          <Link to="/personnel">Personnel</Link>
-        </Button><br/>
-        <Button color="success" size="lg">
-          <Link to="/maintenances">Maintenances</Link>
-        </Button><br/>
+          <Route render={({ location, history }) => (
+              <React.Fragment>
+                  <SideNav
+                      onSelect={(selected) => {
+                          const to = '/' + selected;
+                          if (location.pathname !== to) {
+                              history.push(to);
+                          }
+                      }}
+                  >
+                      <SideNav.Toggle />
+                      <SideNav.Nav defaultSelected="home">
+                          <NavItem eventKey="home">
+                              <NavIcon>
+                                  <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                              </NavIcon>
+                              <NavText>
+                                  Home
+                              </NavText>
+                          </NavItem>
 
-        <Route path="/attractions" />
-        <Route path="/batiment" component={Batiment} />
-        <Route path="/personnel" component={Personnel} />
-        <Route path="/maintenances" component={Maintenance} />
+                          <NavItem eventKey="attractions">
+                              <NavIcon>
+                                  <i className="fa fa-fw fa-device" style={{ fontSize: '1.75em' }} />
+                              </NavIcon>
+                              <NavText>
+                                  Attractions
+                              </NavText>
+                          </NavItem>
 
-        </div>
+                          <NavItem eventKey="batiment">
+                              <NavIcon>
+                                  <i className="fa fa-fw fa-device" style={{ fontSize: '1.75em' }} />
+                              </NavIcon>
+                              <NavText>
+                                  Batiment
+                              </NavText>
+                          </NavItem>
+
+                          <NavItem eventKey="personnel">
+                              <NavIcon>
+                                  <i className="fa fa-fw fa-device" style={{ fontSize: '1.75em' }} />
+                              </NavIcon>
+                              <NavText>
+                                  Personnel
+                              </NavText>
+                          </NavItem>
+
+                          <NavItem eventKey="maintenance">
+                              <NavIcon>
+                                  <i className="fa fa-fw fa-device" style={{ fontSize: '1.75em' }} />
+                              </NavIcon>
+                              <NavText>
+                                  Maintenance
+                              </NavText>
+                          </NavItem>
+                      </SideNav.Nav>
+                  </SideNav>
+                  <main>
+
+                      <Route path="/attractions" component={Tableau}/>
+                      <Route path="/batiment" component={Batiment} />
+                      <Route path="/personnel" component={Personnel} />
+                      <Route path="/maintenance" component={Maintenance} />
+
+                  </main>
+              </React.Fragment>
+          )}
+          />
       </Router>
     )
   }
