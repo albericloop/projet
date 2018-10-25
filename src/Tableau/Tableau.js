@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import Attraction from '../Attraction/Attraction.js';
 import myDataAttraction from '../dataAttraction.json';
+import './Tableau.css';
 
 
 class Tableau extends Component {
@@ -40,7 +41,7 @@ class Tableau extends Component {
     })
   }
 
-  displayAttraction(){
+  displayAttractions(){
     let listItem = this.state.attractionList.map((attraction, index) =>
       <li key={index}>
         <Attraction ID={attraction.ID} Nom={attraction.Nom} Date={attraction.Date} Prix={attraction.Prix}/>
@@ -48,16 +49,22 @@ class Tableau extends Component {
         <button onClick={() => {this.remove(index)}}>Modify</button>
       </li>
     );
-    return (<ul>{listItem}</ul>);
+    return (<div className='right'><button class="add"> Ajouter une nouvelle {this.props.item}</button>
+            <ul>{listItem}</ul></div>);
+  }
+
+  displayBatiments(){
+    return (<div className='right'><button class="add"> Ajouter un nouveau {this.props.item}</button></div>);
   }
 
   render(){
-      return (
-        <div>
-          <button class="add"> Ajouter un(e) nouvel(le) {this.props.item}</button>
-          {this.displayAttraction()}
-        </div>
-      )
+    if (this.props.item == "batiment"){
+      return(<div>{this.displayBatiments()}</div>)
+    }
+    if(this.props.item == "attraction"){
+      return (<div>{this.displayAttractions()}</div>)
+    }
+
   }
 }
 export default Tableau;
