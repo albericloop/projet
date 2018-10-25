@@ -14,26 +14,44 @@ import Maintenance from './Maintenance/Maintenance.js';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { dataAttraction: myDataAttraction, dataBatiment: myDataBatiment, attractionList: [], batimentList: [] }
+    this.state = {
+      dataAttraction: myDataAttraction,
+      dataBatiment: myDataBatiment,
+      attractionList: [],
+      batimentList: []
+    }
   }
 
   componentDidMount() {
     var attraction = this.state.dataAttraction;
-    var tempAttractionList = [];
+    var list = [];
+    console.log("list1: " + attraction.length);
     for(var i = 0; i < attraction.length; i++) {
-    var obj = attraction[i];
-        var tempAttraction = new Attraction(obj.ID,obj.Nom,obj.Date,obj.Prix);
-        tempAttractionList.push(tempAttraction);
+        var obj = attraction[i];
+        list = list.concat({ID: obj.ID, Nom: obj.Nom, Date: obj.Date, Prix: obj.Prix});
     }
-    this.setState({attractionList: tempAttractionList})
+    this.setState({
+      attractionList: list
+    })
 	}
+
+  displayAttraction(){
+    let listItem = this.state.attractionList.map((attraction, index) =>
+      <li key={index}>
+        <Attraction ID={attraction.ID} Nom={attraction.Nom} Date={attraction.Date} Prix={index}/>
+        <button onClick={() => {this.remove(index)}}>Remove</button>
+        <button onClick={() => {this.remove(index)}}>Modify</button>
+      </li>
+    );
+    return (<ul>{listItem}</ul>);
+  }
 
   render() {
     return (
       <Router>
        <div className="App">
          <Button color="danger" size="lg">
-            <Link to="/attractions">{this.state.dataAttraction.length} attractions</Link>
+            <Link to="/attractions">Attractions</Link>
          </Button>
          <Button color="primary" size="lg">
            <Link to="/batiments">Batiments</Link>
@@ -50,12 +68,11 @@ class App extends Component {
          <Route path="/personnel" component={Personnel} />
          <Route path="/maintenances" component={Maintenance} />
 
+         {this.displayAttraction()}
 
         </div>
       </Router>
     )
-
-
   }
 }
 
