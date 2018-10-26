@@ -5,9 +5,13 @@ import myDataAttraction from '../dataAttraction.json';
 import Menu from '../Menu/Menu.js';
 import '../Tableau.css';
 import Popup from "reactjs-popup";
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-class Tableau extends Component {
+var ReactBsTable = require('react-bootstrap-table');
+
+class TableauTest extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -15,6 +19,10 @@ class Tableau extends Component {
       attractionList: []
     }
     this.item = null;
+    this.options = {
+      defaultSortName: 'name',  // default sort column name
+      defaultSortOrder: 'desc'  // default sort order
+    };
  }
 
  componentDidMount() {
@@ -49,54 +57,45 @@ class Tableau extends Component {
     }
   }
 
-  handleSubmit(){
+  add(){
 
-  }
 
-  addAttraction(){
-    return(
-     <form onSubmit={this.handleSubmit}>
-     <input type="text" name="attraction" placeholder="Nom" value={Nom} />
-     <input type="date" name="date" placeholder="JJ/MM/AAAA" {Date}/>
-     <input type="text" name="price" {Prix}/>
-     <Button type="submit" value="Ajouter" />
-     </form>
-   )
   }
 
   displayAttraction(attractionList){
-
+/*
     let listItem = attractionList.map((attraction, index) =>{
-
       return <li key={index}>
         <Attraction ID={attraction.ID} Nom={attraction.Nom} Date={attraction.Date} Prix={attraction.Prix}/>
         <button onClick={this.removeEvent(index)}>Remove</button>
         <button onClick={() => {this.remove(index)}}>Modify</button>
       </li>
 
-    });
-<<<<<<< HEAD
-    return (<div className='right'>
-             <button class="add" onClick={this.addAttraction()}"> Ajouter une nouvelle attraction</button>
-            <ul>{listItem}</ul></div>);
-  }
-
-=======
-    return (
-      <div className='right'><Button color="danger" size="lg"> Ajouter une nouvelle {this.props.item}</Button>
-            <ul>{listItem}</ul></div>);
+    });*/
+    return (<div className='middle'><Button color="danger" size="lg" > Ajouter une nouvelle {this.props.item}</Button>
+              <BootstrapTable ref='table' data={ attractionList }>
+                <TableHeaderColumn dataField='ID' isKey dataSort>ID</TableHeaderColumn>
+                <TableHeaderColumn dataField='Nom' dataSort>Name</TableHeaderColumn>
+                <TableHeaderColumn dataField='Date'>Date</TableHeaderColumn>
+                <TableHeaderColumn dataField='Prix'>Price</TableHeaderColumn>
+              </BootstrapTable>
+            </div>);
   }
 
   displayBatiments(){
-    return (<div className='right'><Button class="add"> Ajouter un nouveau {this.props.item}</Button></div>);
+    return (<div className='right'><button class="add"> Ajouter un nouveau {this.props.item}</button></div>);
   }
->>>>>>> 29a1da36aa42a5b4fccbc87c9b02f21f4972bb4e
 
   render(){
-
     const { attractionList } = this.state;
-    return (<div>{this.displayAttraction(attractionList)}</div>)
+
+    if (this.props.item == "batiment"){
+      return(<div>{this.displayBatiments()}</div>)
+    }
+    if(this.props.item == "attraction"){
+      return (<div>{this.displayAttraction(attractionList)}</div>)
+    }
 
   }
 }
-export default Tableau;
+export default TableauTest;
