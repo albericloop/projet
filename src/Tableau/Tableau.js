@@ -5,8 +5,7 @@ import myDataAttraction from '../dataAttraction.json';
 import Menu from '../Menu/Menu.js';
 import '../Tableau.css';
 import Popup from "reactjs-popup";
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Tableau extends Component {
   constructor(props){
