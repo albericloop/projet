@@ -49,9 +49,19 @@ class Tableau extends Component {
     }
   }
 
-  add(){
+  handleSubmit(){
 
+  }
 
+  addAttraction(){
+    return(
+     <form onSubmit={this.handleSubmit}>
+     <input type="text" name="attraction" placeholder="Nom" value={Nom} />
+     <input type="date" name="date" placeholder="JJ/MM/AAAA" {Date}/>
+     <input type="text" name="price" {Prix}/>
+     <Button type="submit" value="Ajouter" />
+     </form>
+   )
   }
 
   displayAttraction(attractionList){
@@ -65,6 +75,13 @@ class Tableau extends Component {
       </li>
 
     });
+<<<<<<< HEAD
+    return (<div className='right'>
+             <button class="add" onClick={this.addAttraction()}"> Ajouter une nouvelle attraction</button>
+            <ul>{listItem}</ul></div>);
+  }
+
+=======
     return (
       <div className='right'><Button color="danger" size="lg"> Ajouter une nouvelle {this.props.item}</Button>
             <ul>{listItem}</ul></div>);
@@ -73,16 +90,12 @@ class Tableau extends Component {
   displayBatiments(){
     return (<div className='right'><Button class="add"> Ajouter un nouveau {this.props.item}</Button></div>);
   }
+>>>>>>> 29a1da36aa42a5b4fccbc87c9b02f21f4972bb4e
 
   render(){
-    const { attractionList } = this.state;
 
-    if (this.props.item == "batiment"){
-      return(<div>{this.displayBatiments()}</div>)
-    }
-    if(this.props.item == "attraction"){
-      return (<div>{this.displayAttraction(attractionList)}</div>)
-    }
+    const { attractionList } = this.state;
+    return (<div>{this.displayAttraction(attractionList)}</div>)
 
   }
 }
