@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import Attraction from '../Attraction/Attraction.js';
 import myDataAttraction from '../dataAttraction.json';
-import myDataBatiment from '../dataBatiment.json';
-import myDataPersonnel from '../dataPersonnel.json';
-import myDataMaintenance from '../dataMaintenance.json';
+import Menu from '../Menu/Menu.js';
 import './Tableau.css';
 
 
@@ -46,14 +44,17 @@ class Tableau extends Component {
     })
   }
 
-  displayAttractions(){
-    let listItem = this.state.attractionList.map((attraction, index) =>
-      <li key={index} class="attraction">
+  displayAttraction(attractionList){
+
+    let listItem = attractionList.map((attraction, index) =>{
+
+      return <li key={index}>
         <Attraction ID={attraction.ID} Nom={attraction.Nom} Date={attraction.Date} Prix={attraction.Prix}/>
         <button onClick={() => {this.remove(index)}}>Remove</button>
         <button onClick={() => {this.remove(index)}}>Modify</button>
       </li>
-    );
+
+    });
     return (<div className='right'><button class="add"> Ajouter une nouvelle {this.props.item}</button>
             <ul>{listItem}</ul></div>);
   }
@@ -66,8 +67,8 @@ class Tableau extends Component {
     if (this.props.item == "batiment"){
       return(<div>{this.displayBatiments()}</div>)
     }
-    else if(this.props.item == "attraction"){
-      return (<div>{this.displayAttractions()}</div>)
+    if(this.props.item == "attraction"){
+      return (<div>{this.displayAttraction(attractionList)}</div>)
     }
     else if(this.props.item == "personnel"){
       return (<div>{this.displayPersonnel()}</div>)
