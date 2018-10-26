@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import Attraction from '../Attraction/Attraction.js';
 import myDataAttraction from '../dataAttraction.json';
-<<<<<<< HEAD
 import Menu from '../Menu/Menu.js';
-=======
 import './Tableau.css';
 
->>>>>>> b3702194604a885129303367ba70a0edd24c0b6a
 
 class Tableau extends Component {
   constructor(props){
@@ -52,15 +49,16 @@ class Tableau extends Component {
   }
 
   displayAttraction(attractionList){
-    console.log(attractionList);
+
     let listItem = attractionList.map((attraction, index) =>{
-      console.log(attraction,index);
+
       return <li key={index}>
         <Attraction ID={attraction.ID} Nom={attraction.Nom} Date={attraction.Date} Prix={attraction.Prix}/>
         <button onClick={/*() => {this.remove(index)}*/this.removeEvent(index)}>Remove</button>
         <button onClick={() => {this.remove(index)}}>Modify</button>
       </li>
-    );
+
+    });
     return (<div className='right'><button class="add"> Ajouter une nouvelle {this.props.item}</button>
             <ul>{listItem}</ul></div>);
   }
@@ -76,7 +74,7 @@ class Tableau extends Component {
       return(<div>{this.displayBatiments()}</div>)
     }
     if(this.props.item == "attraction"){
-      return (<div>{this.displayAttractions(attractionList)}</div>)
+      return (<div>{this.displayAttraction(attractionList)}</div>)
     }
 
   }

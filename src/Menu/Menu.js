@@ -93,7 +93,7 @@ class Menu extends Component {
                   </SideNav>
                   <main>
 
-                      <Route exact path="/home" component={App} />
+                      <Route exact path="/home" render={App} />
                       <Route exact path="/attractions" render={TabAttr} />
                       <Route exact path="/batiment" render={TabBat} />
                       <Route path="/personnel" render={TabPers} />
