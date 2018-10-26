@@ -32,9 +32,6 @@ class App extends Component {
         <h3>Parc VauxMoret</h3>
         </div>
         <Menu />
-        <div className="App">
-          <Button color="danger" size="lg">Attractions</Button>
-        </div>
       </div>
     )
   }

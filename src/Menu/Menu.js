@@ -9,6 +9,7 @@ import Personnel from '../Personnel/Personnel.js';
 import Maintenance from '../Maintenance/Maintenance.js';
 import Tableau from '../Tableau/Tableau.js';
 import TableauTest from '../Tableau/TableauTest.js';
+import TableauAttraction from '../Attraction/TableauAttraction.js';
 import App from '../App.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,7 +19,7 @@ class Menu extends Component {
 
   render(){
     const TabAttr = () => {
-      return (<TableauTest item="attraction"/>);
+      return (<TableauAttraction item="attraction"/>);
     }
 
     const TabBat = () => {
@@ -44,8 +45,9 @@ class Menu extends Component {
                               history.push(to);
                           }
                       }}
+                      defaultExpanded="true"
                   >
-                      <SideNav.Toggle />
+                      <SideNav.Toggle  />
                       <SideNav.Nav defaultSelected="home">
                           <NavItem eventKey="home">
                               <NavIcon>
