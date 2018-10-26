@@ -50,9 +50,19 @@ class Tableau extends Component {
     }
   }
 
-  add(){
+  handleSubmit(){
 
+  }
 
+  addAttraction(){
+    return(
+     <form onSubmit={this.handleSubmit}>
+     <input type="text" name="attraction" placeholder="Nom" value={Nom} />
+     <input type="date" name="date" placeholder="JJ/MM/AAAA" {Date}/>
+     <input type="text" name="price" {Prix}/>
+     <Button type="submit" value="Ajouter" />
+     </form>
+   )
   }
 
   displayAttraction(attractionList){
@@ -66,23 +76,16 @@ class Tableau extends Component {
       </li>
 
     });
-    return (<div className='right'><button class="add"> Ajouter une nouvelle {this.props.item}</button>
+    return (<div className='right'>
+             <button class="add" onClick={this.addAttraction()}"> Ajouter une nouvelle attraction</button>
             <ul>{listItem}</ul></div>);
   }
 
-  displayBatiments(){
-    return (<div className='right'><button class="add"> Ajouter un nouveau {this.props.item}</button></div>);
-  }
 
   render(){
-    const { attractionList } = this.state;
 
-    if (this.props.item == "batiment"){
-      return(<div>{this.displayBatiments()}</div>)
-    }
-    if(this.props.item == "attraction"){
-      return (<div>{this.displayAttraction(attractionList)}</div>)
-    }
+    const { attractionList } = this.state;
+    return (<div>{this.displayAttraction(attractionList)}</div>)
 
   }
 }
