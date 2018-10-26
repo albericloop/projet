@@ -65,12 +65,13 @@ class Tableau extends Component {
       </li>
 
     });
-    return (<div className='right'><button class="add"> Ajouter une nouvelle {this.props.item}</button>
+    return (
+      <div className='right'><Button color="danger" size="lg"> Ajouter une nouvelle {this.props.item}</Button>
             <ul>{listItem}</ul></div>);
   }
 
   displayBatiments(){
-    return (<div className='right'><button class="add"> Ajouter un nouveau {this.props.item}</button></div>);
+    return (<div className='right'><Button class="add"> Ajouter un nouveau {this.props.item}</Button></div>);
   }
 
   render(){
