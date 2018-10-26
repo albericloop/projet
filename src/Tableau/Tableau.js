@@ -2,62 +2,55 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import Attraction from '../Attraction/Attraction.js';
 import myDataAttraction from '../dataAttraction.json';
-<<<<<<< HEAD
-import Menu from '../Menu/Menu.js';
-=======
+import myDataBatiment from '../dataBatiment.json';
+import myDataPersonnel from '../dataPersonnel.json';
+import myDataMaintenance from '../dataMaintenance.json';
 import './Tableau.css';
 
->>>>>>> b3702194604a885129303367ba70a0edd24c0b6a
 
 class Tableau extends Component {
   constructor(props){
     super(props);
     this.state = {
-      dataAttraction: myDataAttraction,
-      attractionList: []
+      dataAttraction: myDataAttraction, attractionList: [],
+      dataBatiment: myDataBatiment, batimentList: [],
+      dataPersonnel: myDataPersonnel, personnelList: [],
+      dataMaintenance: myDataMaintenance, maintenanceList: [],
     }
     this.item = null;
+
  }
 
  componentDidMount() {
    var attraction = this.state.dataAttraction;
-   var listtest = new Array();
-
+   var list = [];
+   console.log("list1: " + attraction.length);
    for(var i = 0; i < attraction.length; i++) {
        var obj = attraction[i];
-       listtest.push({ID: obj.ID, Nom: obj.Nom, Date: obj.Date, Prix: obj.Prix});
+       list = list.concat({ID: obj.ID, Nom: obj.Nom, Date: obj.Date, Prix: obj.Prix});
    }
-
    this.setState({
-     attractionList: listtest
+     attractionList: list
    })
   }
 
-  remove(index){
-    console.log(index);
+  addAttraction(){
     this.setState({
-      attractionList: this.state.attractionList.filter((_, i) => i !== index)
-    });
-    /*var temp = this.state.attractionList;
-    temp.splice(index,1);
-    this.setState({
-      attractionList: temp
-    })*/
+      listAttractions: this.state.listAttractions.concat(new Attraction)
+    })
   }
 
-  removeEvent = (index) => {
-    return () => {
-      this.remove(index);
-    }
+  remove(){
+    this.setState({
+      attractionList: this.state.attractionList.slice(0, -1)
+    })
   }
 
-  displayAttraction(attractionList){
-    console.log(attractionList);
-    let listItem = attractionList.map((attraction, index) =>{
-      console.log(attraction,index);
-      return <li key={index}>
+  displayAttractions(){
+    let listItem = this.state.attractionList.map((attraction, index) =>
+      <li key={index} class="attraction">
         <Attraction ID={attraction.ID} Nom={attraction.Nom} Date={attraction.Date} Prix={attraction.Prix}/>
-        <button onClick={/*() => {this.remove(index)}*/this.removeEvent(index)}>Remove</button>
+        <button onClick={() => {this.remove(index)}}>Remove</button>
         <button onClick={() => {this.remove(index)}}>Modify</button>
       </li>
     );
@@ -70,15 +63,19 @@ class Tableau extends Component {
   }
 
   render(){
-    const { attractionList } = this.state;
-
     if (this.props.item == "batiment"){
       return(<div>{this.displayBatiments()}</div>)
     }
-    if(this.props.item == "attraction"){
-      return (<div>{this.displayAttractions(attractionList)}</div>)
+    else if(this.props.item == "attraction"){
+      return (<div>{this.displayAttractions()}</div>)
     }
-
+    else if(this.props.item == "personnel"){
+      return (<div>{this.displayPersonnel()}</div>)
+    }
+    else if(this.props.item == "maintenance"){
+      return (<div>{this.displayMaintenance()}</div>)
+    }
+    else{return null}
   }
 }
 export default Tableau;
