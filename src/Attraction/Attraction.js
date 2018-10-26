@@ -8,10 +8,10 @@ class Attraction extends Component {
   render(){
     return(
       <div className="Attraction">
-        <h4>{this.state.ID}</h4>
-        <h3>{this.state.Nom}</h3>
-        <h4>{this.state.Date}</h4>
-        <h4>{this.state.Prix}</h4>
+        <h3>{this.props.ID}</h3>
+        <h3>{this.props.Nom}</h3>
+        <h3>{this.props.Date}</h3>
+        <h3>{this.props.Prix}</h3>
       </div>
     )
   }
