@@ -23,7 +23,7 @@ var ReactBsTable = require('react-bootstrap-table');
 
   }
 
-class TableauTest extends Component {
+class TableauAttraction extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -120,4 +120,4 @@ class TableauTest extends Component {
 
   }
 }
-export default TableauTest;
+export default TableauAttraction;
