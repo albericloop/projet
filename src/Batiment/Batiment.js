@@ -8,9 +8,9 @@ class Batiment extends Component {
   render(){
     return(
       <div className="Batiment">
-        <h3>{this.state.ID}</h3>
-        <h3>{this.state.Nom}</h3>
-        <h3>{this.state.Date}</h3>
+        <h3>{this.props.ID}</h3>
+        <h3>{this.props.Nom}</h3>
+        <h3>{this.props.Date}</h3>
       </div>
     )
   }

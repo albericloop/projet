@@ -35,7 +35,6 @@ class App extends Component {
         <div className="App">
           <Button color="danger" size="lg">Attractions</Button>
           <Tableau item="attraction" />
-
         </div>
       </div>
     )

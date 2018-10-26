@@ -76,7 +76,6 @@ class Menu extends Component {
                       </SideNav.Nav>
                   </SideNav>
                   <main>
-
                       <Route path="/attractions" component={Tableau}/>
                       <Route path="/batiment" component={Batiment} />
                       <Route path="/personnel" component={Personnel} />
