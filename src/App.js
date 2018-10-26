@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import myDataAttraction from './dataAttraction.json';
 import myDataBatiment from './dataBatiment.json';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Button } from 'reactstrap';

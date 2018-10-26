@@ -8,7 +8,9 @@ import Batiment from '../Batiment/Batiment.js';
 import Personnel from '../Personnel/Personnel.js';
 import Maintenance from '../Maintenance/Maintenance.js';
 import Tableau from '../Tableau/Tableau.js';
+import TableauTest from '../Tableau/TableauTest.js';
 import App from '../App.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Button } from 'reactstrap';
 
@@ -16,7 +18,7 @@ class Menu extends Component {
 
   render(){
     const TabAttr = () => {
-      return (<Tableau item="attraction"/>);
+      return (<TableauTest item="attraction"/>);
     }
 
     const TabBat = () => {
