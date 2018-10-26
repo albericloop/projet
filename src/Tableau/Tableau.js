@@ -4,6 +4,8 @@ import Attraction from '../Attraction/Attraction.js';
 import myDataAttraction from '../dataAttraction.json';
 import Menu from '../Menu/Menu.js';
 import './Tableau.css';
+import Popup from "reactjs-popup";
+
 
 
 class Tableau extends Component {
@@ -44,13 +46,22 @@ class Tableau extends Component {
     })
   }
 
+  add(){
+
+
+  }
+
   displayAttraction(attractionList){
 
     let listItem = attractionList.map((attraction, index) =>{
 
       return <li key={index}>
         <Attraction ID={attraction.ID} Nom={attraction.Nom} Date={attraction.Date} Prix={attraction.Prix}/>
+<<<<<<< HEAD
         <button onClick={() => {this.remove(index)}}>Remove</button>
+=======
+        <button onClick={this.removeEvent(index)}>Remove</button>
+>>>>>>> 87566c3c9431f4627458459b11b96b93cfeac937
         <button onClick={() => {this.remove(index)}}>Modify</button>
       </li>
 
