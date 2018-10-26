@@ -13,9 +13,25 @@ import App from '../App.js';
 import { Button } from 'reactstrap';
 
 class Menu extends Component {
-  render(){
-    return(
 
+  render(){
+    const TabAttr = () => {
+      return (<Tableau item="attraction"/>);
+    }
+
+    const TabBat = () => {
+      return (<Tableau item="batiment"/>);
+    }
+
+    const TabPers = () => {
+      return (<Tableau item="personnel"/>);
+    }
+
+    const TabMain = () => {
+      return (<Tableau item="maintenance"/>);
+    }
+
+    return(
       <Router>
           <Route render={({ location, history }) => (
               <React.Fragment>
@@ -76,10 +92,12 @@ class Menu extends Component {
                       </SideNav.Nav>
                   </SideNav>
                   <main>
-                      <Route path="/attractions" component={Tableau}/>
-                      <Route path="/batiment" component={Batiment} />
-                      <Route path="/personnel" component={Personnel} />
-                      <Route path="/maintenance" component={Maintenance} />
+
+                      <Route exact path="/home" component={App} />
+                      <Route exact path="/attractions" render={TabAttr} />
+                      <Route exact path="/batiment" render={TabBat} />
+                      <Route path="/personnel" render={TabPers} />
+                      <Route path="/maintenance" render={TabMain} />
 
                   </main>
               </React.Fragment>
