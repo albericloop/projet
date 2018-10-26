@@ -66,8 +66,17 @@ class Tableau extends Component {
       </li>
 
     });
-    return (<div className='right'><button class="add"> Ajouter une nouvelle {this.props.item}</button>
-            <ul>{listItem}</ul></div>);
+    return (
+      <div>
+      <Popup trigger={<button class="add"> Ajouter une nouvelle {this.props.item}</button>} position="right center">
+
+          Popup content here !!
+
+      </Popup>
+      <div className='right'><ul>{listItem}</ul></div>
+      </div>
+
+    );
   }
 
   displayBatiments(){
