@@ -3,30 +3,35 @@
       "ID": 0,
       "Nom": "Tour de la Terreur",
       "Date": "2018-11-11",
-      "Prix": "12€"
+      "Prix": "12€",
+      "Description": "Ceci est une super attraction"
     },
     {
       "ID": 1,
       "Nom": "Roue d'Ixion",
       "Date": "2018-11-12",
-      "Prix": "8€"
+      "Prix": "8€",
+      "Description": "Ceci est une super attraction"
     },
     {
       "ID": 2,
       "Nom": "Fire Quest",
       "Date": "2018-11-13",
-      "Prix": "14€"
+      "Prix": "14€",
+      "Description": "Ceci est une super attraction"
     },
     {
       "ID": 3,
       "Nom": "Axe Thrower",
       "Date": "2018-11-14",
-      "Prix": "10€"
+      "Prix": "10€",
+      "Description": "Ceci est une super attraction"
     },
     {
       "ID": 4,
       "Nom": "Tour",
       "Date": "2018-11-15",
-      "Prix": 12
+      "Prix": 12,
+      "Description": "Ceci est une super attraction"
     }
   ]

@@ -20,7 +20,6 @@ var ReactBsTable = require('react-bootstrap-table');
   }
 
   function onDeleteRow(rowKeys) {
-
   }
 
 class TableauAttraction extends Component {
@@ -35,15 +34,30 @@ class TableauAttraction extends Component {
       defaultSortName: 'name',  // default sort column name
       defaultSortOrder: 'desc'  // default sort order
     };
+    this.isExpandableRow = this.isExpandableRow.bind(this);
+    this.expandComponent = this.expandComponent.bind(this);
+    this.expandColumnComponent = this.expandColumnComponent.bind(this);
+ }
+
+ isExpandableRow(row) {
+   return true;
+ }
+
+ expandComponent(row) {
+   var temp = this.state.attractionList.id === row['id'];
+   const resultat = this.state.attractionList.find( item => item.id === row['id']);
+   console.log("id" + row['id'] + "data" + resultat['Description']);
+   return (
+     <p>{resultat['Description']}</p>
+   );
  }
 
  componentDidMount() {
    var attraction = this.state.dataAttraction;
    var listtest = new Array();
-
    for(var i = 0; i < attraction.length; i++) {
        var obj = attraction[i];
-       listtest.push({ID: obj.ID, Nom: obj.Nom, Date: obj.Date, Prix: obj.Prix});
+       listtest.push({id: obj.ID, Nom: obj.Nom, Date: obj.Date, Prix: obj.Prix, Description: obj.Description});
    }
 
    this.setState({
@@ -69,13 +83,26 @@ class TableauAttraction extends Component {
     }
   }
 
+  expandColumnComponent({ isExpandableRow, isExpanded }) {
+    let content = '';
 
+    if (isExpandableRow) {
+      content = (isExpanded ? '-' : '+' );
+    } else {
+      content = ' ';
+    }
+    return (
+      <div> { content } </div>
+    );
+  }
 
   displayAttraction(attractionList){
     const options = {
       afterInsertRow: onInsertRow,
-      afterDeleteRow: onDeleteRow
-    }
+      afterDeleteRow: onDeleteRow,
+      expandRowBgColor: 'rgb(242, 255, 163)',
+      mode: "click"
+    };
 
     // To delete rows you be able to select rows
     const selectRowProp = {
@@ -91,12 +118,20 @@ class TableauAttraction extends Component {
 
     return (<div className='middle'>
               <BootstrapTable ref='table' data={ attractionList }
+                                          expandableRow={this.isExpandableRow}
                                           insertRow={true}
                                           deleteRow={true}
-                                          selectRow={selectRowProp}
                                           options={options}
-                                          cellEdit={cellEditProp}>
-                <TableHeaderColumn dataField='ID' isKey dataSort>ID</TableHeaderColumn>
+                                          cellEdit={cellEditProp}
+                                          expandComponent={this.expandComponent}
+                                          expandColumnOptions={{
+                                            expandColumnVisible: true,
+                                            expandColumnComponent: this.expandColumnComponent,
+                                            columnWidth: 50
+                                          }
+                                          }
+                                          selectRow={selectRowProp}>
+                <TableHeaderColumn dataField='id' isKey={ true } dataSort>ID</TableHeaderColumn>
                 <TableHeaderColumn dataField='Nom' dataSort>Name</TableHeaderColumn>
                 <TableHeaderColumn dataField='Date' dataSort>Date</TableHeaderColumn>
                 <TableHeaderColumn dataField='Prix' dataSort>Price</TableHeaderColumn>
