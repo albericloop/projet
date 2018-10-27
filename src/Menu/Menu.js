@@ -7,7 +7,7 @@ import Attraction from '../Attraction/Attraction.js';
 import Batiment from '../Batiment/Batiment.js';
 import Personnel from '../Personnel/Personnel.js';
 import Maintenance from '../Maintenance/Maintenance.js';
-import Tableau from '../Tableau/Tableau.js';
+import TableauAttraction from '../Attraction/TableauAttraction.js';
 import TableauTest from '../Tableau/TableauTest.js';
 import Test from '../Attraction/Test.js';
 import TableauAttraction from '../Attraction/TableauAttraction.js';
@@ -24,15 +24,15 @@ class Menu extends Component {
     }
 
     const TabBat = () => {
-      return (<Tableau item="batiment"/>);
+      return (<TableauAttractionitem="batiment"/>);
     }
 
     const TabPers = () => {
-      return (<Tableau item="personnel"/>);
+      return (<TableauAttractionitem="personnel"/>);
     }
 
     const TabMain = () => {
-      return (<Tableau item="maintenance"/>);
+      return (<TableauAttractionitem="maintenance"/>);
     }
 
     return(
@@ -98,9 +98,9 @@ class Menu extends Component {
                   </SideNav>
                   <main>
 
-                      <Route exact path="/home" render={App} />
-                      <Route exact path="/attractions" render={TabAttr} />
-                      <Route exact path="/batiment" render={TabBat} />
+                      <Route path="/home" render={App} />
+                      <Route exact path="/attractions" render={Tableau} />
+                      <Route exact path="/batiment" render={Tableau} />
                       <Route path="/personnel" render={TabPers} />
                       <Route path="/maintenance" render={TabMain} />
 
