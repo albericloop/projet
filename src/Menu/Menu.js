@@ -10,7 +10,6 @@ import Maintenance from '../Maintenance/Maintenance.js';
 import TableauAttraction from '../Attraction/TableauAttraction.js';
 import TableauTest from '../Tableau/TableauTest.js';
 import Test from '../Attraction/Test.js';
-import TableauAttraction from '../Attraction/TableauAttraction.js';
 import App from '../App.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -19,20 +18,20 @@ import { Button } from 'reactstrap';
 class Menu extends Component {
 
   render(){
-    const TabAttr = () => {
+    const Tableau = () => {
       return (<TableauAttraction item="attraction"/>);
     }
 
     const TabBat = () => {
-      return (<TableauAttractionitem="batiment"/>);
+      return (<TableauAttraction item="batiment"/>);
     }
 
     const TabPers = () => {
-      return (<TableauAttractionitem="personnel"/>);
+      return (<TableauAttraction item="personnel"/>);
     }
 
     const TabMain = () => {
-      return (<TableauAttractionitem="maintenance"/>);
+      return (<TableauAttraction item="maintenance"/>);
     }
 
     return(
