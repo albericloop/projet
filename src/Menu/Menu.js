@@ -3,13 +3,11 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './Menu.css';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-import Attraction from '../Attraction/Attraction.js';
-import Batiment from '../Batiment/Batiment.js';
-import Personnel from '../Personnel/Personnel.js';
-import Maintenance from '../Maintenance/Maintenance.js';
 import TableauAttraction from '../Attraction/TableauAttraction.js';
-import TableauTest from '../Tableau/TableauTest.js';
-import Test from '../Attraction/Test.js';
+import TableauPersonnel from '../Personnel/TableauPersonnel.js';
+import TableauBatiment from '../Batiment/TableauBatiment.js';
+import TableauMaintenance from '../Maintenance/TableauMaintenance.js';
+import Tableau from '../Tableau/Tableau.js';
 import App from '../App.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,21 +16,6 @@ import { Button } from 'reactstrap';
 class Menu extends Component {
 
   render(){
-    const Tableau = () => {
-      return (<TableauAttraction item="attraction"/>);
-    }
-
-    const TabBat = () => {
-      return (<TableauAttraction item="batiment"/>);
-    }
-
-    const TabPers = () => {
-      return (<TableauAttraction item="personnel"/>);
-    }
-
-    const TabMain = () => {
-      return (<TableauAttraction item="maintenance"/>);
-    }
 
     return(
       <Router>
@@ -97,11 +80,11 @@ class Menu extends Component {
                   </SideNav>
                   <main>
 
-                      <Route path="/home" render={App} />
-                      <Route exact path="/attractions" render={Tableau} />
-                      <Route exact path="/batiment" render={Tableau} />
-                      <Route path="/personnel" render={TabPers} />
-                      <Route path="/maintenance" render={TabMain} />
+                      <Route path="/home" component={Tableau} />
+                      <Route exact path="/attractions" component={TableauAttraction} />
+                      <Route exact path="/batiment" component={TableauBatiment} />
+                      <Route path="/personnel" component={TableauPersonnel} />
+                      <Route path="/maintenance" render={TableauMaintenance} />
 
                   </main>
               </React.Fragment>

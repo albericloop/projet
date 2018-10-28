@@ -131,10 +131,10 @@ class TableauAttraction extends Component {
                                           }
                                           }
                                           selectRow={selectRowProp}>
-                <TableHeaderColumn dataField='id' isKey={ true } dataSort>ID</TableHeaderColumn>
-                <TableHeaderColumn dataField='Nom' dataSort>Name</TableHeaderColumn>
-                <TableHeaderColumn dataField='Date' dataSort>Date</TableHeaderColumn>
-                <TableHeaderColumn dataField='Prix' dataSort>Price</TableHeaderColumn>
+                <TableHeaderColumn dataField='id' isKey={ true } dataSort>N°</TableHeaderColumn>
+                <TableHeaderColumn dataField='Nom' dataSort>Attraction</TableHeaderColumn>
+                <TableHeaderColumn dataField='Date' dataSort>Date d'installation</TableHeaderColumn>
+                <TableHeaderColumn dataField='Prix' dataSort>Prix</TableHeaderColumn>
               </BootstrapTable>
             </div>);
   }
@@ -146,13 +146,8 @@ class TableauAttraction extends Component {
   render(){
     const { attractionList } = this.state;
 
-    if (this.props.item == "batiment"){
-      return(<div>{this.displayBatiments()}</div>)
-    }
-    if(this.props.item == "attraction"){
       return (<div>{this.displayAttraction(attractionList)}</div>)
-    }
-
+    
   }
 }
 export default TableauAttraction;

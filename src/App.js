@@ -8,7 +8,7 @@ import { Button } from 'reactstrap';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 import './App.css';
-import Tableau from './Attraction/TableauAttraction.js';
+import TableauAttraction from './Attraction/TableauAttraction.js';
 import Attraction from './Attraction/Attraction.js';
 import Batiment from './Batiment/Batiment.js';
 import Personnel from './Personnel/Personnel.js';
