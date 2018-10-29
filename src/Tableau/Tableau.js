@@ -17,9 +17,8 @@ class Tableau extends Component {
 
     return (
       <div className="home">
+      <br/><br/>
       <h3>Bienvenue sur le site web d'amnistration du parc d'attractions Vauxmoret !</h3>
-      <p>Nous disposons actuellement de 5 attractions, 4 bâtiments et 5 employés.</p>
-      <p>La prochaine maintenance est prévue pour le 3 novembre 2018.</p>
       </div>
     )
 

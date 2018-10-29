@@ -13,5 +13,16 @@
 }
 .middle{
   margin-left: 20%;
-  margin-right: 15%;
+  margin-right: 10%;
+}
+
+.stats{
+  width:90%;
+  border-width:2px;
+  border-style:solid;
+  border-color: black;
+}
+
+th, td{
+  border: solid 2px black;
 }

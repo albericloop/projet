@@ -7,6 +7,7 @@ import TableauAttraction from '../Attraction/TableauAttraction.js';
 import TableauPersonnel from '../Personnel/TableauPersonnel.js';
 import TableauBatiment from '../Batiment/TableauBatiment.js';
 import TableauMaintenance from '../Maintenance/TableauMaintenance.js';
+import TableauStatistiques from '../Statistique/TableauStatistiques.js';
 import Tableau from '../Tableau/Tableau.js';
 import App from '../App.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -55,7 +56,7 @@ class Menu extends Component {
                                   <i className="fa fa-fw fa-device" style={{ fontSize: '1.75em' }} />
                               </NavIcon>
                               <NavText>
-                                  Batiment
+                                  Batiments
                               </NavText>
                           </NavItem>
 
@@ -73,7 +74,16 @@ class Menu extends Component {
                                   <i className="fa fa-fw fa-device" style={{ fontSize: '1.75em' }} />
                               </NavIcon>
                               <NavText>
-                                  Maintenance
+                                  Maintenances
+                              </NavText>
+                          </NavItem>
+
+                          <NavItem eventKey="statistiques">
+                              <NavIcon>
+                                  <i className="fa fa-fw fa-device" style={{ fontSize: '1.75em' }} />
+                              </NavIcon>
+                              <NavText>
+                                  Statistiques
                               </NavText>
                           </NavItem>
                       </SideNav.Nav>
@@ -84,7 +94,8 @@ class Menu extends Component {
                       <Route exact path="/attractions" component={TableauAttraction} />
                       <Route exact path="/batiment" component={TableauBatiment} />
                       <Route path="/personnel" component={TableauPersonnel} />
-                      <Route path="/maintenance" render={TableauMaintenance} />
+                      <Route path="/maintenance" component={TableauMaintenance} />
+                      <Route path="/statistiques" component={TableauStatistiques} />
 
                   </main>
               </React.Fragment>
